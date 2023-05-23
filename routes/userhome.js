@@ -4,6 +4,16 @@ const router = express.Router();
 const { PrismaClient } = require("@prisma/client");
 const prisma = new PrismaClient();
 
+// Middleware function to check if the user is an admin
+const isUser = (req, res, next) => {
+  const user = req.session.user; // Assuming you have the user information stored in the session
+  if (user && user.usertype === 'User') {
+    next(); // User is an admin, proceed to the next middleware/route handler
+  } else {
+    res.status(403).send('Forbidden'); // User is not an admin, send a forbidden error
+  }
+};
+
 /* GET profile page. */
 router.get('/user', async function(req, res, next) {
   // Retrieve the logged-in user ID from the session or any other storage

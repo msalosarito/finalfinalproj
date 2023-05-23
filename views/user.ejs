@@ -48,6 +48,11 @@
                 </div>
               </form>
 
+              <nav>
+                <ul>              
+                <!-- Logout button -->
+                <li><a href="#" onclick="logout()">Logout</a></li>
+                  </ul>
 
                 <script>
                   // Fetch current data from the server or data source
@@ -62,6 +67,16 @@
                   document.getElementById("contact_number").value = currentUser.contact_number;
                   document.getElementById("email").value = currentUser.email;
                 </script>
+<!-- JavaScript -->
+<script>
+  // Logout function
+  function logout() {
+    // Perform logout actions here, such as clearing session data or tokens
+    // Redirect to the login page or any desired location after logout
+    window.location.href = "/login"; // Replace "/login" with the appropriate URL
+  }
+</script>
+
 
               </div>
             </div>

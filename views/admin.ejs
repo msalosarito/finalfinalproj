@@ -195,8 +195,16 @@ $(document).ready(function(){
           <ul class="menu menu-horizontal px-1">
             <li><a href="/index">Home</a></li>
           </ul>
+          <div class="flex-none">
+            <ul class="menu menu-horizontal px-1">
+                     <!-- Logout button -->
+                     <li><a href="#" onclick="logout()">Logout</a></li>
+                    </ul>
+          </div>
+    
         </div>
       </div>
+    </div>
 <div class="container-xl">
     <div class="table-responsive">
         <div class="table-wrapper">
@@ -261,6 +269,16 @@ $(document).ready(function(){
                 </div>
             </div>
         </div>
+
+        <!-- JavaScript -->
+<script>
+    // Logout function
+    function logout() {
+      // Perform logout actions here, such as clearing session data or tokens
+      // Redirect to the login page or any desired location after logout
+      window.location.href = "/login"; // Replace "/login" with the appropriate URL
+    }
+  </script>
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
             <script src="https://cdn.tailwindcss.com"></script>
 </body>
