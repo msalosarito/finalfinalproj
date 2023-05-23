@@ -15,7 +15,7 @@ const isAdmin = (req, res, next) => {
 };
 
 /* GET admin dashboard. */
-router.get('/admin', async (req, res, next) => {
+router.get('/admin', isAdmin, async (req, res, next) => {
   try {
     const users = await prisma.user.findMany();
 
@@ -92,6 +92,17 @@ router.post('/delete', async function (req, res, next) {
     console.error(error);
     res.status(500).send('Internal Server Error');
   }
+});
+
+/* GET logout page. */
+router.get('/logout', function(req, res, next) {
+  req.session.destroy(err => {
+    if (err) {
+      console.error(err)
+    } else {
+      res.redirect('/login')
+    }
+  })
 });
 
 

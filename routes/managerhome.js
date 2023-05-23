@@ -14,7 +14,7 @@ const isManager = (req, res, next) => {
   }
 };
 /* GET manager dashboard. */
-router.get('/manager', async (req, res, next) => {
+router.get('/manager',isManager, async (req, res, next) => {
   try {
     const users = await prisma.user.findMany();
 
